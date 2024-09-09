@@ -1,0 +1,7 @@
+site_name: Embed Midterm
+nav:
+  - Home: index.md
+  - Midterm: midterm.md
+markdown_extensions:
+  - attr_list
+  - md_in_html
