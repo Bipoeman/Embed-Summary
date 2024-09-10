@@ -4,8 +4,8 @@ theme:
   font:
     text: Itim
 nav:
-  - Home: index.md
   - Midterm: midterm.md
+  # - Home: index.md
 markdown_extensions:
   - attr_list
   - md_in_html
