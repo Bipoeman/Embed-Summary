@@ -146,6 +146,19 @@ int main() {
   <figcaption>Flyback Diode</figcaption>
 </figure>
 
+## Chapter 4 : Analog Output
 
+### DAC (Digital to Analog Converter)
+Basicly convert **binary input** to **analog output**
+<figure markdown="span">
+  ![MCU Architecture](images\dac.png){ width="500"}
+  <figcaption>DAC Block Diagram</figcaption>
+</figure>
 
+Output Voltage of DAC are determined by
 
+$Vo = \dfrac{D * V_{ref}}{2^n}$ </br>
+Vo : Output Voltage </br>
+D : Digital Input </br>
+Vref : Reference Voltage </br>
+n : Number of bits </br>
