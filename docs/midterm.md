@@ -108,11 +108,16 @@ wait_us(us);
 
 ## 7-Segment
 ตัวเลข ที่เราคุ้นเคย ใน example ใช้ `BusOut` แต่ต้องโน้ตไว้อย่างนึงว่า Ouput Pin แต่ละ Pin มีค่าความต้านทานภายใน 100Ω และ LED Segment มีแรงดันตกคร่อมประมาณ 1.8V เพราะงั้นเวลาคำนวนกระแสต้องคิดค่า R ภายในด้วยเช่นถ้า </br>
-I = 5mA </br>
-Vled = 1.8V </br>
-Vpin = 3.3V </br>
-Rinternal = 100Ω</br>
-ดังนั้น R จะเท่ากับ ((3.3 - 1.8) / 5m) - 100 = ___Ω
+
+$I = 4mA$
+
+$V_{led} = 1.8V$
+
+$V_{pin} = 3.3V$
+
+$R_{internal} = 100Ω$
+
+ดังนั้น R จะเท่ากับ $\dfrac{3.3 - 1.8}{4m} - 100 = 275Ω$
 
 ```C
 /*Program Example 3.7: Simple demonstration of 7-segment display. Display
