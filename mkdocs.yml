@@ -5,6 +5,7 @@ nav:
 markdown_extensions:
   - attr_list
   - md_in_html
+  - tables
   - pymdownx.arithmatex:
       generic: true
 

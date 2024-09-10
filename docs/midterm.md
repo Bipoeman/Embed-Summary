@@ -6,7 +6,7 @@
 
 - Vending Machine
 - Washing Machine
-- Segwa personal transporter
+- Segway personal transporter
 
 **MPU vs MCU**
 MPU ไม่พูดถึงแต่ MCU คือ Computer + Control Functions ประกอบด้วย
@@ -162,3 +162,232 @@ Vo : Output Voltage </br>
 D : Digital Input </br>
 Vref : Reference Voltage </br>
 n : Number of bits </br>
+
+In LPC1768 has 10-bit DAC ก็คือ $2^{10}$ หรือก็คือ 1024 steps นั่นแหละ
+
+AnalogOut Example
+```C
+/*Program Example 4.1: Three values of DAC are output in turn on
+Pin 18. Read the output on a DVM.
+*/
+#include "mbed.h"
+AnalogOut Aout(p18); //create an analog output on pin 18
+int main() {
+  while(1) {
+    Aout=0.25; // 0.25*3.3V = 0.825V
+    wait(2);
+    Aout=0.5; // 0.5*3.3V = 1.65V
+    wait(2);
+    Aout=0.75; // 0.75*3.3V = 2.475V
+    wait(2);
+  }
+}
+```
+นอกจากนี้ยังมี `write` `write_u16` `read` และ Operator `=` เพื่อใช้สำหรับอ่านและเขียนค่าไปที่ `AnalogOut` ด้วย
+
+### PWM (Pulse Width Modulation)
+Basicly Square Wave with variable **On-Time** and the ratio of On:Off time is called **Duty Cycle**
+![pwm](images\pwm.gif)
+ถ้าอยากได้แรงดัน Analog จาก PWM สามารถใช้วงจรในการเฉลี่ยค่าของ Pulse ได้เช่น RC Low pass filter
+<figure markdown="span">
+  ![MCU Architecture](images\rc.png){ width="500"}
+  <figcaption>RC Lowpass filter circuit</figcaption>
+</figure>
+
+#### PWM on MBED
+MBED LPC1768 has **6** PWM Output on pins 21-26
+
+|Functions|Usage|
+|---------|-----|
+|`PwmOut`|Create Object|
+|`write`|Set duty cycle 0.0-1.0|
+|`read`| Get current Duty Cycle|
+|`period`|Set PWM Period in **seconds**|
+|`period_ms`|Set PWM period in **milliseconds**|
+|`period_us`|Set PWM period in **microseconds**|
+|`pulsewidth`|Set PWM Pulse Width in **seconds**|
+|`pulsewidth_ms`|Set PWM Pulse Width in **milliseconds**|
+|`pulsewidth_us`|Set PWM Pulse Width in **microseconds**|
+|operator **=**|Shorthand for `write`|
+
+**Example**
+```C
+/*Sets PWM source to fixed frequency and duty cycle. Observe output on
+oscilloscope.
+*/
+#include "mbed.h"
+PwmOut PWM1(p21); //create a PWM output called PWM1 on pin 21
+int main() {
+  PWM1.period(0.010); // set PWM period to 10 ms
+  PWM1=0.5; // set duty cycle to 50%
+}
+```
+
+**ใช้ Software Generated PWM ก็ได้นะ**
+```C
+/*Program Example 4.6: Software generated PWM. 2 PWM values generated in turn, with
+full on and off included for comparison.
+*/
+#include "mbed.h"
+DigitalOut motor(p6);
+int i;
+int main() {
+while(1) {
+  motor = 0; //motor switched off for 5 secs
+  wait (5);
+  for (i=0;i<5000;i=i+1) { //5000 PWM cycles, low duty cycle
+      motor = 1;
+      wait_us(400); //output high for 400us
+      motor = 0;
+      wait_us(600); //output low for 600us
+    }
+    for (i=0;i<5000;i=i+1) { //5000 PWM cycles, high duty cycle
+      motor = 1;
+      wait_us(800); //output high for 800us
+      motor = 0;
+      wait_us(200); //output low for 200us
+    }
+    motor = 1; //motor switched fully on for 5 secs
+    wait (5);
+  }
+}
+```
+
+### Servo Control
+เอาง่ายๆ สัญญาณ Control เป็น Pulse ที่มี Period 20ms และ width ตั้งแต่ 1-2ms represent 0-180 องศา
+
+## Chapter 5 : Analog Input
+
+### ADC (Analog to Digital Converter)
+Basicly Analog in Digital Out ใช้วัดแรงดัน โดยจะวัดเทียบกับแรงดัน Reference Voltage โดยที่จะมีเสปคประมาณนี้</br>
+1. Range is มันวัดได้เยอะแค่ไหน often minimum is 0V and Maximum value is $V_{ref}$ </br>
+2. Resolution วัดได้ละเอียดแค่ไหน ปกติก็จำนวนเป็น bits เช่นถ้า 10 bits ก็จะวัดได้ $2^{10} = 1024$ Steps และก็เอามาเทียบกับ Range ก็จะได้ Resolution = $\dfrac{V_{ref}}{2^n}$ </br>
+3. Quantisation คือ Error ที่อยู่ระหว่างแต่ละ Step คำนวนจาก Resolution / 2 เช่น 3.3V 8bit แต่ละ Step ก็จะเท่ากับ $\dfrac{3.3}{256}=12.89mV$ แล้วก็ $\div2$ จะได้ $6.45mV$</br>
+
+<figure markdown="span">
+  ![MCU Architecture](images\quantisation.png){ width="500"}
+  <figcaption>Quantisation Error</figcaption>
+</figure>
+
+### DAQ (Data Acquisition System)
+เอาง่ายๆคือเป็นเหมือน Environment ที่มาอยู่รอบๆ ADC เช่น </br> 
+- ก่อนจะวัดก็ต้องมีตัวแปลงสัญญาณนั้นให้เป็นสัญญาณไฟฟ้าซะก่อน เรียกว่า Transducer เช่น Microphone แปลงจาก Audio -> Electrical Signal</br>
+- ถ้าต้องการวัดสัญญาณหลายที่ในรูปจะมี Multiplexer ไว้เลือกสัญญาณเข้า </br>
+<figure markdown="span">
+  ![MCU Architecture](images\daq.png){ width="500"}
+  <figcaption>Data Acquisition System</figcaption>
+</figure>
+
+### Sampling Frequency and Aliasing
+Sampling Frequency ก็คือว่าเราอ่านข้อมูลถี่แค่ไหน จบ </br>
+และก็มี Nyquist Frequency ก็คือต้องมีค่าอย่างน้อย **2 เท่า**ของสัญญาณที่ต้งการวัด
+
+### Analog Input with mbed
+LPC1768 has **Single ADC** with multiplexer and has reference voltage of 3.3V
+
+|Functions|Usage|
+|---------|-----|
+|`AnalogIn`|Create analog Object|
+|`reead`|Read input voltage range from 0.0-1.0|
+|`read_u16`|Read in unsigned short in the range (0x0 - 0xFFFF)|
+
+**Example**
+```C
+/*This Program is basically a very slow Voltage Buffer
+*/
+#include "mbed.h"
+AnalogOut Aout(p18); //defines analog output on Pin 18
+AnalogIn Ain(p20) //defines analog input on Pin 20
+int main() {
+  while(1) {
+    Aout=Ain; //transfer analog in value to analog out, both
+  }
+}
+```
+
+```C
+/*Program Example 5.2: Uses analog input to control PWM duty
+cycle, fixed period
+*/
+#include "mbed.h"
+PwmOut PWM1(p23);
+AnalogIn Ain(p20); // defines analog input on Pin 20
+int main() {
+  while(1){
+    PWM1.period(0.010); // set PWM period to 10 ms
+    PWM1=Ain; // Analog in value becomes PWM duty,
+    // both are type float
+    wait(0.1);
+  }
+}
+```
+
+### Display Value to the computer
+ใช้ Putty เถอะครับ เพื่อเปิด Serial Terminal
+
+<figure markdown="span">
+  ![MCU Architecture](images\puttyPlease.png){ width="500"}
+  <figcaption>Doesn't MACs has Putty?</figcaption>
+</figure>
+
+ใช้ Object `Serial` ในการส่งข้อมูล มี Constant น่าสนใจคือ `USBTX` และ `USBRX` ซึ่งเป็นขาทีี่ต้องอยู่กับ MCU ที่ Bridge ระหว่าง USB กับ LPC1768
+```C
+/*Program Example 5.4: Reads input voltage through the ADC, and transfers to PC
+terminal
+
+*/
+
+#include "mbed.h"
+Serial pc(USBTX, USBRX); //enable serial port which links to USB
+AnalogIn Ain(p20);
+float ADCdata;
+int main() {
+  pc.printf("ADC Data Values...\n\r"); //send an opening text message
+  while(1){
+    ADCdata=Ain;
+    wait(0.5);
+    pc.printf("%1.3f \n\r",ADCdata); //send the data to the terminal
+  }
+}
+```
+การปริ้นค่าสามารถใช้ `pc.printf("abc %d",variable)` ได้เลย
+
+### Simple Analog sensor
+<figure markdown="span">
+  ![MCU Architecture](images\ldr.png){ width="500"}
+  <figcaption>LDR Sensor</figcaption>
+</figure>
+<figure markdown="span">
+  ![MCU Architecture](images\lm35.png){ width="500"}
+  <figcaption>LM35 Temperature Sensor</figcaption>
+</figure>
+
+Exploring Conversion Timing
+```C
+/*Program Example 5.5: Inputs signal through ADC, and outputs to DAC. View DAC
+output on oscilloscope. To demonstrate Nyquist, connect variable frequency signal
+generator to ADC input. Allows measurement of conversion times, and explores
+Nyquist limit. */
+#include "mbed.h"
+AnalogOut Aout(p18); //defines analog output on Pin 18
+AnalogIn Ain(p20); //defines analog input on Pin 20
+DigitalOut test(p5);
+float ADCdata;
+int main() {
+  while(1) {
+    ADCdata=Ain; //starts A-D conversion, and assigns analog value to ADCdata
+    test=1; //switch test output, as time marker
+    test=0;
+    Aout=ADCdata; // transfers stored value to DAC, and forces a D-A conversion
+    test=1; //a double pulse, to mark the end of conversion
+    test=0;
+    test=1;
+    test=0;
+    //wait(0.001); //optional wait state, to explore different cycle times
+  }
+}
+```
+เอาง่ายๆเลย โค้ดนี้อ่านค่า Analog เก็บไว้ในตัวแปร กระพริบ 1 pulse แล้วเอาค่านั้นไปเข้า DAC จากนั้นกระพริบ 2 ครั้งแล้วอ่านใหม่
+**แล้วทำไมไม่จ่าย High ตอนเริ่ม Low ตอนจบวะ!!!**
+
+## Chapter 7 Serial Communication
