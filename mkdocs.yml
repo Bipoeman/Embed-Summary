@@ -1,4 +1,8 @@
 site_name: Embed Midterm
+theme:
+  name: mkdocs
+  font:
+    text: Itim
 nav:
   - Home: index.md
   - Midterm: midterm.md

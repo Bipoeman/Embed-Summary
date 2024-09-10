@@ -1,6 +1,6 @@
 # Embeded System Midterm
 
-## Chapter 1 : Embeded, MCU and ARM
+# Chapter 1 : Embeded, MCU and ARM
 
 **Embeded system** คือ Product Controlled by Computer for Example
 
@@ -23,14 +23,14 @@ MPU ไม่พูดถึงแต่ MCU คือ Computer + Control Functi
 - instruction takes same amout of time
 - Piplining
 
-## Chapter 2 : Introducing to MBED
+# Chapter 2 : Introducing to MBED
 <figure markdown="span">
   ![Image title](images\mbed-lpc1768.jpg){ width="300" align=center}
   <figcaption>ไอบอร์ดเวร</figcaption>
 </figure>
 
 **MBED LPC1768** เป็น MCU ที่ต่ออุปกรณ์เสริมมาเรียบร้อยแล้ว (เรียกได้ว่าพร้อมใช้)
-**MBED Board Architecture**
+## MBED Board Architecture
 
 - LPC1768 MCU
 - Signal Pins
@@ -56,7 +56,7 @@ int main() {
 }
 ```
 
-## Chapter 3 : Digital IO
+# Chapter 3 : Digital IO
 ไอบอดเวรนี่มี 26 Pin ที่ใช้เป็น Input และ Output ได้ ก็คือตั้งแต่ Pin 5-30
 <!-- 
 Built-in
@@ -84,7 +84,8 @@ wait_us(us);
 </figure>
 (GPIO ของชิพจริงไม่มี State Undefined นะครับ)
 
-### **ว่าด้วยเรื่องของ LEDs** สรุปง่ายๆ คือ LED มันรับ**กระแส**ได้จำกัดซึ่งถ้าเราจ่ายแรงดันมากเกินไปอาจะทำให้กระแสไหลเกินจน LED ขาดได้
+## **ว่าด้วยเรื่องของ LEDs** 
+สรุปง่ายๆ คือ LED มันรับ**กระแส**ได้จำกัดซึ่งถ้าเราจ่ายแรงดันมากเกินไปอาจะทำให้กระแสไหลเกินจน LED ขาดได้
 <figure markdown="span">
   ![MCU Architecture](images\LED.png){ width="500"}
   <figcaption>การจ่ายกระแสให้ LED</figcaption>
@@ -94,7 +95,7 @@ wait_us(us);
 1. Source จะจ่ายออกจากขา IO 
 1. Sink จะดึงกระแสเข้ามาในขา IO
 
-### **ว่าด้วยเรื่องการต่อ Switch Input**
+## **ว่าด้วยเรื่องการต่อ Switch Input**
 <figure markdown="span">
   ![MCU Architecture](images\switchinput.png){ width="500"}
   <figcaption>Input แบบต่างๆ</figcaption>
@@ -105,7 +106,7 @@ wait_us(us);
   <figcaption>ใช้ Opto เป็น Input ก็ได้</figcaption>
 </figure>
 
-### 7-Segment
+## 7-Segment
 ตัวเลข ที่เราคุ้นเคย ใน example ใช้ `BusOut` แต่ต้องโน้ตไว้อย่างนึงว่า Ouput Pin แต่ละ Pin มีค่าความต้านทานภายใน 100Ω และ LED Segment มีแรงดันตกคร่อมประมาณ 1.8V เพราะงั้นเวลาคำนวนกระแสต้องคิดค่า R ภายในด้วยเช่นถ้า </br>
 I = 5mA </br>
 Vled = 1.8V </br>
@@ -134,7 +135,7 @@ int main() {
 }
 ```
 
-### Control Larger Load
+## Control Larger Load
 ใช้ BJT หรือ MOSFET
 <figure markdown="span">
   ![MCU Architecture](images\largeLoad.png){ width="500"}
@@ -146,7 +147,7 @@ int main() {
   <figcaption>Flyback Diode</figcaption>
 </figure>
 
-## Chapter 4 : Analog Output
+# Chapter 4 : Analog Output
 
 ### DAC (Digital to Analog Converter)
 Basicly convert **binary input** to **analog output**
@@ -185,7 +186,7 @@ int main() {
 ```
 นอกจากนี้ยังมี `write` `write_u16` `read` และ Operator `=` เพื่อใช้สำหรับอ่านและเขียนค่าไปที่ `AnalogOut` ด้วย
 
-### PWM (Pulse Width Modulation)
+## PWM (Pulse Width Modulation)
 Basicly Square Wave with variable **On-Time** and the ratio of On:Off time is called **Duty Cycle**
 ![pwm](images\pwm.gif)
 ถ้าอยากได้แรงดัน Analog จาก PWM สามารถใช้วงจรในการเฉลี่ยค่าของ Pulse ได้เช่น RC Low pass filter
@@ -194,7 +195,7 @@ Basicly Square Wave with variable **On-Time** and the ratio of On:Off time is ca
   <figcaption>RC Lowpass filter circuit</figcaption>
 </figure>
 
-#### PWM on MBED
+### PWM on MBED
 MBED LPC1768 has **6** PWM Output on pins 21-26
 
 |Functions|Usage|
@@ -253,12 +254,12 @@ while(1) {
 }
 ```
 
-### Servo Control
+## Servo Control
 เอาง่ายๆ สัญญาณ Control เป็น Pulse ที่มี Period 20ms และ width ตั้งแต่ 1-2ms represent 0-180 องศา
 
-## Chapter 5 : Analog Input
+# Chapter 5 : Analog Input
 
-### ADC (Analog to Digital Converter)
+## ADC (Analog to Digital Converter)
 Basicly Analog in Digital Out ใช้วัดแรงดัน โดยจะวัดเทียบกับแรงดัน Reference Voltage โดยที่จะมีเสปคประมาณนี้</br>
 1. Range is มันวัดได้เยอะแค่ไหน often minimum is 0V and Maximum value is $V_{ref}$ </br>
 2. Resolution วัดได้ละเอียดแค่ไหน ปกติก็จำนวนเป็น bits เช่นถ้า 10 bits ก็จะวัดได้ $2^{10} = 1024$ Steps และก็เอามาเทียบกับ Range ก็จะได้ Resolution = $\dfrac{V_{ref}}{2^n}$ </br>
@@ -269,7 +270,7 @@ Basicly Analog in Digital Out ใช้วัดแรงดัน โดยจ�
   <figcaption>Quantisation Error</figcaption>
 </figure>
 
-### DAQ (Data Acquisition System)
+## DAQ (Data Acquisition System)
 เอาง่ายๆคือเป็นเหมือน Environment ที่มาอยู่รอบๆ ADC เช่น </br> 
 - ก่อนจะวัดก็ต้องมีตัวแปลงสัญญาณนั้นให้เป็นสัญญาณไฟฟ้าซะก่อน เรียกว่า Transducer เช่น Microphone แปลงจาก Audio -> Electrical Signal</br>
 - ถ้าต้องการวัดสัญญาณหลายที่ในรูปจะมี Multiplexer ไว้เลือกสัญญาณเข้า </br>
@@ -278,11 +279,11 @@ Basicly Analog in Digital Out ใช้วัดแรงดัน โดยจ�
   <figcaption>Data Acquisition System</figcaption>
 </figure>
 
-### Sampling Frequency and Aliasing
+## Sampling Frequency and Aliasing
 Sampling Frequency ก็คือว่าเราอ่านข้อมูลถี่แค่ไหน จบ </br>
 และก็มี Nyquist Frequency ก็คือต้องมีค่าอย่างน้อย **2 เท่า**ของสัญญาณที่ต้งการวัด
 
-### Analog Input with mbed
+## Analog Input with mbed
 LPC1768 has **Single ADC** with multiplexer and has reference voltage of 3.3V
 
 |Functions|Usage|
@@ -322,7 +323,7 @@ int main() {
 }
 ```
 
-### Display Value to the computer
+## Display Value to the computer
 ใช้ Putty เถอะครับ เพื่อเปิด Serial Terminal
 
 <figure markdown="span">
@@ -352,7 +353,7 @@ int main() {
 ```
 การปริ้นค่าสามารถใช้ `pc.printf("abc %d",variable)` ได้เลย
 
-### Simple Analog sensor
+## Simple Analog sensor
 <figure markdown="span">
   ![MCU Architecture](images\ldr.png){ width="500"}
   <figcaption>LDR Sensor</figcaption>
@@ -390,4 +391,165 @@ int main() {
 เอาง่ายๆเลย โค้ดนี้อ่านค่า Analog เก็บไว้ในตัวแปร กระพริบ 1 pulse แล้วเอาค่านั้นไปเข้า DAC จากนั้นกระพริบ 2 ครั้งแล้วอ่านใหม่
 **แล้วทำไมไม่จ่าย High ตอนเริ่ม Low ตอนจบวะ!!!**
 
-## Chapter 7 Serial Communication
+# Chapter 7 Serial Communication
+มัน Serial (อนุกรม) เพราะมันส่งข้อมูลทีละ 1 bit ถึงจะช้ากว่า Parallel แต่ก็ดีกว่าในเรื่องใช้สายน้อย
+
+มี 2 แบบคือ Synchronous กับ Asynchronous Serial
+
+1. Asynchronous Serial ก็คือ Serial Link ที่ส่งแล้วอาศัยการนับ Timing ของฝั่งส่งและฝั่งรับด้วยตัวเอง เพราะงั้นต้องคุยกันก่อนว่าจะส่งด้วยความเร็วแค่ไหน
+1. Synchronous Serial ก็คือ Serial ที่มี clock เพื่อใช้ในการ Synchroni**z**ed Frame ของข้อมูล
+
+**Basics of Serial Port** : the shift register จริงๆก็แค่รับสัญญาณ Clock และ Data ที่เป็น Serial แล้วแปลงออกมาให้เป็น Parallel
+<figure markdown="span">
+  ![MCU Architecture](images\SIPO.png){ width="500"}
+  <figcaption>Serial in Parallel Out</figcaption>
+</figure>
+
+**A Simple Serial Link** อันนี้คือ Synchronous Link ที่มีแค่ Clock, TX (SDO), RX(SDI) ปกติจะต่อจากขาส่งไปรับ และจากขารับไปส่งแต่จะมี Role เข้ามาเกี่ยวข้องคือ Slave กับ Master ซึ่งก็ต่างกันแค่ Master เป็นคน Generate สัญญาณ Clock (เพราะงั้นถ้า Master ไม่ถาม Slave ไม่ต้องพูดดด)
+<figure markdown="span">
+  ![MCU Architecture](images\serialLink.png){ width="500"}
+  <figcaption>Simple Serial Link</figcaption>
+</figure>
+
+## SPI (Serial Peripheral Interface)
+Created by **Motorola** and **National Semiconductors** การเชื่อมต่อมี Clock, Data In, Data Out และ Slave Select (SS) ก็คือมี Slave กี่ตัวก็ต่อ SS ไปเท่านั้นเลยอ่ะนะ
+![SPI](images/SPI.png)
+
+**SPI on mbed : Master** 
+MBED มี SPI อยู่ 2 Port โดยแต่ละอันจะตั้งเป็น Master หรือ Slave ก็ได้
+
+|Function|Usage|
+|--------|-----|
+|`SPI(mosi, miso, sclk)`|Create SPI Master and configure the Pin|
+|`format(bit,mode)`|configure data mode and data length|
+|`frequency(hz)`|Set SPI Clock Frequency|
+|`write(data)`|Write to the SPI Slave and return the response|
+
+![MBED SPI](images/mbed_spi.png){width=300}</br>
+
+ปกติ SPI จะมี Mode การทำงานอยู่ 4 โหมด (โหมดบอกว่าสัญญาณจะถูกอ่านที่ขาขึ้นหรือลง และบอกว่า Idle Clock เป็น High หรือ Low) ถ้าให้จำง่ายๆ
+
+|Mode|Idle Clock|อ่านสัญญาณตอนไหน|
+|--|--|--|
+|0|0|&#8593; ขึ้น|
+|1|0|&#8595; ลง|
+|2|1|&#8593; ขึ้น|
+|3|1|&#8595; ลง|
+
+![SPI Mode](images/SPI_Mode.png){width=800}
+
+**SPI Master Example**
+
+```C
+#include "mbed.h"
+SPI ser_port(p11, p12, p13); // mosi, miso, sclk
+char switch_word ; //word we will send
+int main() {
+  ser_port.format(8,0); // Setup the SPI for 8 bit data, Mode 0 operation
+  ser_port.frequency(1000000); // Clock frequency is 1MHz
+  while (1){
+    switch_word = 0xA1; //set up word to be transmitted
+    int readBack = ser_port.write(switch_word); //send switch_word and read in readBack
+    wait_us(50);
+  }
+}
+```
+
+### **SPI on mbed : Slave** 
+
+|Functions|Usage|
+|--|--|
+|`SPISlave(mosi,miso,sck,ss)`|Create a SPI slave connected to the specified pins|
+|`format(bit,mode)`|Configure the data transmission format|
+|`frequency(hz)`|Set clock Frequency (เพื่อ?)|
+|`receive()`|Flag ว่ามีข้อมูลมามั้ย|
+|`read()`|Return data|
+|`reply()`|ถ้ารอบหน้า Master ทักมาจะตอบว่าไงมั้ย|
+
+**ADXL345** Accelerometer
+![alt text](images/ADXL345.png)
+
+**Evaluating SPI**
+
+ข้อดี
+
+- เร็ว
+- ถูก
+- มีประสิทธิภาพ
+
+ข้อเสีย
+
+- ไม่มีการ Ack ไม่รู้ว่าส่งไปเขาได้รับครบถูกมั้ย
+- ไม่มี Addressing เพราะงั้นต้องใช้ SS Line สำหรับทุก Slave
+- ไม่มี Error Checking ก็ถ้ามีการรบกวนคือไม่มีทางรู้
+
+
+## I2C (Inter-Integrated Circuit)
+<p>I2C เป็น Serial แบบ Master/Slave อยู่ มีสาย 2 เส้นคือ SCL/SDA (Clock, Data) แบบ Open-Collector ซึ่งจะมี Pullup Resistor ก็คือแต่ละ Node จะ Force Bus เป็น 0 ได้แต่ Force ให้เป็น 1 ไม่ได้</p>
+<p>และแน่นอน พอเป็น Master/Slave ก็จะทำให้ Master ต้องเป็นคนเริ่ม Transfer data (Master ไม่ขอก็ให้ Slave อยู่เงียบๆ)</p>
+
+![alt text](images/I2C_BUS.png)
+
+Start Condition เริ่มตอน SDA&#8595; ตอนที่ SCL ยัง High<br/>
+Stop Condition เริ่มตอน SDA&#8593; ตอนที่ SCL ยัง High<br/>
+
+ตอนส่งข้อมูลจะเริ่มด้วย (7-bits) Address ก่อนแล้วตามด้วย $Read/\overline{Write}$ Bit จากนั้น Slave จะ ACK แล้วเริ่มส่งข้อมูล
+
+Address ของ I2C เป็น Address แบบ 7 bits แต่ตอนส่งต้อง left shift ไป 1 (เพื่อ Reserved Bit ซ้ายสุดไว้สำหรับ $R/\overline{W}$ ยังไงล่ะ)
+<p>ปกติข้อมูลจะส่งเป็น Byte จะส่งกี่ Byte ก็ได้ ไม่มี Limit แต่จะมี 1 bit acknowledge ทุก Byte ที่ส่ง</p>
+
+![alt text](images/i2c_frame.png)
+
+### **I2C on mbed** 
+MBED มี SPI อยู่ 2 Port โดยแต่ละอันจะตั้งเป็น Master หรือ Slave ก็ได้
+
+<figure markdown="span">
+  ![MCU Architecture](images\i2c_function.png){ width="500"}
+  <figcaption>I2C Function (แคปละกันเริ่มไม่ไหวละ)</figcaption>
+</figure>
+
+```C
+uint8_t address; // Slave Address
+I2C i2c_port(p9, p10); // P9 = SDA, P10 = SCL
+
+// ถ้าจะ Write จะเขียนแบบนี้
+i2c_port.start();
+i2c_port.write(address << 1);
+i2c_port.write(data);
+i2c_port.stop();
+
+// ถ้าจะ Read จะเขียนแบบนี้
+i2c_port.start();
+i2c_port.write(address << 1 | 0x01); // ต้องเติม 1 เข้าไปที่ท้าย address เพื่อระบุว่าเป็น Read
+int read = i2c_port.read(); // อยากได้หลาย Byte ก็ For เอามั้ง555
+i2c_port.stop();
+```
+
+ข้อดีคือ **Reliable**
+
+ข้อเสียคือ**ช้า**
+
+## Asynchronous Serial
+ด้วยความ Asynchronous แน่นอน ไม่ต้องการ Clock แต่ความเร็วต้องตกลงกันก่อนนะ ไม่งั้นคุยกันไม่รู้เรื่อง ในแต่ละ Byte/Word จะมี Start และ Stop Bit
+
+การสื่อารแบบนี้เรียกว่า UART (Universla Asynchronous Receiver/Transmitter) มีสาย 1 เส้นเพื่อส่ง(TX) และ 1 เส้นเพื่อรับ(RX)
+
+### UART on mbed
+MBED มี UART อยู่ 4 ช่องตามนี้ (อันที่เขียนว่า Serial)
+
+![alt text](images/lpc1768_pinout.png)
+
+![alt text](images/uart_function.png)
+
+ถ้าจะต่อกับ PC จะมี Constant ที่ใช้กำหนดใน Serial ได้คือ `USBTX` `USBRX` ก็จะใช้ประมาณนี้ `Serial pc(USBTX,USBRX)`
+
+## USB (Universal Serial Bus)
+ก็ตามชื่อ Universal ถอดเสียบโดยไม่ต้องตั้งค่าอะไร (Plug and Play)
+
+บอร์ด MBED มี USB 2 Port แต่มี Peripheral แค่พอร์ตเดียวนะครับ อันนึงเอาไว้โปรแกรม,จ่ายไฟและ Serial ส่วนอีกอันสามารถใช้เป็น USB Device ได้
+
+![alt text](images/mbed_arch.png)
+
+USB ทำตัวเป็น Mouse, Keyboard, Serial, MIDI, Audio, USBMSD
+
+![alt text](images/usb_function.png)
