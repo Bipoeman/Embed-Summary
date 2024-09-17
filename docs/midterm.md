@@ -24,7 +24,7 @@ MPU ไม่พูดถึงแต่ MCU คือ Computer + Control Functi
 - Piplining
 
 # Chapter 2 : Introducing to MBED
-<figure markdown="span">
+<figure markdown="span" align="center">
   ![Image title](images\mbed-lpc1768.jpg){ width="300" align=center}
   <figcaption>ไอบอร์ดเวร</figcaption>
 </figure>
@@ -37,7 +37,7 @@ MPU ไม่พูดถึงแต่ MCU คือ Computer + Control Functi
 - USB Interface MCU
 - 16Mbit USB Disk (เอาง่ายๆ จะอัพโค้ดแบบปกติ หรือว่าจะเอา Compiled ใส่ USB Disk ก็ได้)
 
-<figure markdown="span">
+<figure markdown="span" align="center">
   ![MCU Architecture](images\LPC_Sturcture.png){ width="500"}
   <figcaption>โครงสร้างการทำงานภายใน แต่ไม่ต้องไปจำแม่งหรอกครับ</figcaption>
 </figure>
@@ -78,7 +78,7 @@ wait_ms(ms);
 wait_us(us);
 ```
 
-<figure markdown="span">
+<figure markdown="span" align="center">
   ![MCU Architecture](images\VoltageLogic.png){ width="500"}
   <figcaption>Voltage as Logic values</figcaption>
 </figure>
@@ -86,7 +86,7 @@ wait_us(us);
 
 ## **ว่าด้วยเรื่องของ LEDs** 
 สรุปง่ายๆ คือ LED มันรับ**กระแส**ได้จำกัดซึ่งถ้าเราจ่ายแรงดันมากเกินไปอาจะทำให้กระแสไหลเกินจน LED ขาดได้
-<figure markdown="span">
+<figure markdown="span" align="center">
   ![MCU Architecture](images\LED.png){ width="500"}
   <figcaption>การจ่ายกระแสให้ LED</figcaption>
 </figure>
@@ -96,12 +96,12 @@ wait_us(us);
 1. Sink จะดึงกระแสเข้ามาในขา IO
 
 ## **ว่าด้วยเรื่องการต่อ Switch Input**
-<figure markdown="span">
+<figure markdown="span" align="center">
   ![MCU Architecture](images\switchinput.png){ width="500"}
   <figcaption>Input แบบต่างๆ</figcaption>
 </figure>
-
-<figure markdown="span">
+ 
+<figure markdown="span"align="center">
   ![MCU Architecture](images\opto.png){ width="500"}
   <figcaption>ใช้ Opto เป็น Input ก็ได้</figcaption>
 </figure>

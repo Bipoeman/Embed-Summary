@@ -1,11 +1,12 @@
-site_name: Embed Midterm
+site_name: Embeded Summary
 theme:
   name: mkdocs
   font:
-    text: Itim
+    text: K2D
 nav:
+  - Home: index.md
   - Midterm: midterm.md
-  # - Home: index.md
+  - Chapter 9 : interrupt.md
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -14,5 +15,8 @@ markdown_extensions:
       generic: true
 
 extra_javascript:
-  - javascripts/mathjax.js
+  # - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - style.css
