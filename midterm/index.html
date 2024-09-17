@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Midterm - Embed Midterm</title>
+        <title>Midterm - Embeded Summary</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -17,6 +17,7 @@
         <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../style.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
@@ -24,10 +25,26 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="..">Embed Midterm</a>
+                <a class="navbar-brand" href="..">Embeded Summary</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Midterm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../interrupt/" class="nav-link">Chapter 9</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ms-md-auto">
                         <li class="nav-item">
@@ -35,6 +52,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../interrupt/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -184,7 +211,7 @@ MPU ไม่พูดถึงแต่ MCU คือ Computer + Control Functi
 <li>Piplining</li>
 </ul>
 <h1 id="chapter-2-introducing-to-mbed">Chapter 2 : Introducing to MBED</h1>
-<figure>
+<figure align="center">
   <img align="center" alt="Image title" src="../images/mbed-lpc1768.jpg" width="300" />
   <figcaption>ไอบอร์ดเวร</figcaption>
 </figure>
@@ -196,7 +223,7 @@ MPU ไม่พูดถึงแต่ MCU คือ Computer + Control Functi
 <li>USB Interface MCU</li>
 <li>16Mbit USB Disk (เอาง่ายๆ จะอัพโค้ดแบบปกติ หรือว่าจะเอา Compiled ใส่ USB Disk ก็ได้)</li>
 </ul>
-<figure>
+<figure align="center">
   <img alt="MCU Architecture" src="../images/LPC_Sturcture.png" width="500" />
   <figcaption>โครงสร้างการทำงานภายใน แต่ไม่ต้องไปจำแม่งหรอกครับ</figcaption>
 </figure>
@@ -232,14 +259,14 @@ wait(s);
 wait_ms(ms);
 wait_us(us);
 </code></pre>
-<figure>
+<figure align="center">
   <img alt="MCU Architecture" src="../images/VoltageLogic.png" width="500" />
   <figcaption>Voltage as Logic values</figcaption>
 </figure>
 <p>(GPIO ของชิพจริงไม่มี State Undefined นะครับ)</p>
 <h2 id="leds"><strong>ว่าด้วยเรื่องของ LEDs</strong></h2>
 <p>สรุปง่ายๆ คือ LED มันรับ<strong>กระแส</strong>ได้จำกัดซึ่งถ้าเราจ่ายแรงดันมากเกินไปอาจะทำให้กระแสไหลเกินจน LED ขาดได้</p>
-<figure>
+<figure align="center">
   <img alt="MCU Architecture" src="../images/LED.png" width="500" />
   <figcaption>การจ่ายกระแสให้ LED</figcaption>
 </figure>
@@ -249,11 +276,11 @@ wait_us(us);
 <li>Sink จะดึงกระแสเข้ามาในขา IO</li>
 </ol>
 <h2 id="switch-input"><strong>ว่าด้วยเรื่องการต่อ Switch Input</strong></h2>
-<figure>
+<figure align="center">
   <img alt="MCU Architecture" src="../images/switchinput.png" width="500" />
   <figcaption>Input แบบต่างๆ</figcaption>
 </figure>
-<figure>
+<figure align="center">
   <img alt="MCU Architecture" src="../images/opto.png" width="500" />
   <figcaption>ใช้ Opto เป็น Input ก็ได้</figcaption>
 </figure>
@@ -768,7 +795,6 @@ i2c_port.stop();
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../js/base.js"></script>
-        <script src="../javascripts/mathjax.js"></script>
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="../search/main.js"></script>
 

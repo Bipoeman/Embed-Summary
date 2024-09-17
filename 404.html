@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>Embed Midterm</title>
+        <title>Embeded Summary</title>
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/fontawesome.min.css" rel="stylesheet">
         <link href="/css/brands.min.css" rel="stylesheet">
@@ -17,6 +17,7 @@
         <link href="/css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="/style.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
     </head>
@@ -24,10 +25,26 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="/.">Embed Midterm</a>
+                <a class="navbar-brand" href="/.">Embeded Summary</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="/." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/midterm/" class="nav-link">Midterm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/interrupt/" class="nav-link">Chapter 9</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ms-md-auto">
                         <li class="nav-item">
@@ -64,7 +81,6 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="/js/base.js"></script>
-        <script src="/javascripts/mathjax.js"></script>
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="/search/main.js"></script>
 
