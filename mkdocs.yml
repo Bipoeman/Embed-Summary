@@ -4,9 +4,12 @@ theme:
   font:
     text: K2D
 nav:
-  - Home: index.md
-  - Midterm: midterm.md
+  - Home: midterm.md
+  # - Midterm: midterm.md
   - Chapter 9 : interrupt.md
+  - Chapter 10 : memory.md
+  - Chapter 11 : wireless.md
+  - Chapter 12 : internet.md
 markdown_extensions:
   - attr_list
   - md_in_html
