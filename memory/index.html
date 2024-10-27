@@ -139,6 +139,13 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="chapter-10-memory-and-data-management">Chapter 10 Memory and Data Management</h1>
+<blockquote>
+<p>Electrically Erasable Information that Easily and Eternally Written with Precision and Reliability on Programmable Read-Only Memory (EEIEEWPRPROM or E²IE²W(PR)²OM)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <cite>รุกกี้</cite></p>
+</blockquote>
 <h1 id="memory">Memory</h1>
 <h2 id="memory-function-types">Memory Function Types</h2>
 <p>Memory ใน microcontroller มีอยู่ 2 หน้าที่หลักๆก็คือใช้เก็บโปรแกรม ก็คือ Program Memory ไว้เก็บโปรแกรม และ Data Memory ไว้เก็บข้อมูลตอนทำงาน</p>
@@ -323,10 +330,10 @@ int main() {
     }
     FILE *File = fopen(&quot;/usb/usbfile.txt&quot;, &quot;w&quot;); // open file
     if(File == NULL) { // check for file pointer
-        intf(&quot;Could not open file for write\n&quot;); // error if no pointer
+        printf(&quot;Could not open file for write\n&quot;); // error if no pointer
     }
     else{
-    p   tf(&quot;USB card file successfully opened\n&quot;); // if pointer ok
+        printf(&quot;USB card file successfully opened\n&quot;); // if pointer ok
     }
     fprintf(File, &quot;Here's some sample text on the USB card&quot;); // write data
     fclose(File); // close file
