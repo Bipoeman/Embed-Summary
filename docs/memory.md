@@ -1,4 +1,10 @@
 # Chapter 10 Memory and Data Management 
+> Electrically Erasable Information that Easily and Eternally Written with Precision and Reliability on Programmable Read-Only Memory (EEIEEWPRPROM or E²IE²W(PR)²OM)
+>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <cite>รุกกี้</cite>
 # Memory
 ## Memory Function Types
 <p>Memory ใน microcontroller มีอยู่ 2 หน้าที่หลักๆก็คือใช้เก็บโปรแกรม ก็คือ Program Memory ไว้เก็บโปรแกรม และ Data Memory ไว้เก็บข้อมูลตอนทำงาน</p>
@@ -200,10 +206,10 @@ int main() {
     }
     FILE *File = fopen("/usb/usbfile.txt", "w"); // open file
     if(File == NULL) { // check for file pointer
-        intf("Could not open file for write\n"); // error if no pointer
+        printf("Could not open file for write\n"); // error if no pointer
     }
     else{
-    p   tf("USB card file successfully opened\n"); // if pointer ok
+        printf("USB card file successfully opened\n"); // if pointer ok
     }
     fprintf(File, "Here's some sample text on the USB card"); // write data
     fclose(File); // close file

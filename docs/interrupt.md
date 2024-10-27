@@ -40,7 +40,7 @@
 </figure>
 
 ## Simple Interrupt on the mbed
-บอร์ด mbed ใช้ pin ได้ตั้งแต่ 5 - 30 ยกเว้น 19,20 เป็น Interrupt
+บอร์ด mbed ใช้ pin ได้ตั้งแต่ 5 - 30 เป็น Interrupt ยกเว้น 19,20 
 
 |Function|Usage|
 |---|---|
@@ -105,8 +105,9 @@ int main() {
 ```
 
 ## Interrupt from analog Inputs
-ใช้ Comparator ครับสัญญาณขา $V_-$ เกิน $V_+$ Output ก็เป็น High ครับจบ😜
+ใช้ Comparator ครับสัญญาณขา $V_+$ เกิน $V_-$ Output ก็เป็น High ครับจบ😜
 
+$V_- = V_{sup} * \frac{R_2}{R_1+R_2}$
 <figure markdown="span" align="center">
   ![Interrupt Flowchart](images\analog_interrupt.png){ height="300"}
   <figcaption>Interrupt with analog</figcaption>
@@ -173,6 +174,7 @@ int main() {
 
 ###### mbed `Timeout`
 ฟังชันจะถูกเรียกใช้ตามเวลาที่กำหนด
+
 |Function|Usage|
 |---|---|
 |`attach(ISR,seconds)`|Attach function และจำนวนวินาที ที่จะเรียกตอนเกิด timeout|
@@ -189,9 +191,9 @@ DigitalOut led1(LED1); //blinks in time with main while(1) loop
 DigitalOut led2(LED2); //set high fixed period after button press
 DigitalOut led3(LED3); //goes high when button is pressed
 void blink() { //this function is called at the end of the Timeout
-led2 = 1;
-wait(0.5);
-led2=0;
+    led2 = 1;
+    wait(0.5);
+    led2=0;
 }
 int main() {
     while(1) {
@@ -211,6 +213,7 @@ int main() {
 
 ###### mbed `Ticker`
 ฟังชันจะถูกเรียกใช้ตามเวลาที่กำหนด
+
 |Function|Usage|
 |---|---|
 |`attach(ISR,seconds)`|Attach function และจำนวนวินาที ที่จะให้ ticker เมื่อถึงเวลา|
