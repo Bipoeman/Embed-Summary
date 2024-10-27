@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Chapter 10 - Embeded Summary</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../style.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Embeded Summary</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../midterm/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../interrupt/" class="nav-link">Chapter 9</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Chapter 10</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wireless/" class="nav-link">Chapter 11</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../internet/" class="nav-link">Chapter 12</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../interrupt/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../wireless/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#chapter-10-memory-and-data-management" class="nav-link">Chapter 10 Memory and Data Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#memory" class="nav-link">Memory</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#memory-function-types" class="nav-link">Memory Function Types</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#electronic-memory-types" class="nav-link">Electronic Memory Types</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#pointer" class="nav-link">Pointer</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#defining-pointer" class="nav-link">Defining Pointer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#pointers-with-array-and-functions" class="nav-link">Pointers with array and functions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#files" class="nav-link">Files</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#using-data-files-on-the-mbed" class="nav-link">Using data files on the mbed</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#using-external-memory-with-the-mbed" class="nav-link">Using external memory with the mbed</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="chapter-10-memory-and-data-management">Chapter 10 Memory and Data Management</h1>
+<h1 id="memory">Memory</h1>
+<h2 id="memory-function-types">Memory Function Types</h2>
+<p>Memory ใน microcontroller มีอยู่ 2 หน้าที่หลักๆก็คือใช้เก็บโปรแกรม ก็คือ Program Memory ไว้เก็บโปรแกรม และ Data Memory ไว้เก็บข้อมูลตอนทำงาน</p>
+<p>Electronic Memory จะมุ่งเก็บข้อมูลแค่ 0 กับ 1 (ซึ่งมมันก็ Stable แค่ 2 state เราเลยเรียกมันว่า <b>Bistable</b>) เหมือนเหรียญมีหัวกับก้อยอ่ะ กี่ bit ก็คือเหมือนกับมีกี่เหรียญ</p>
+<p>แต่เราไม่เก็บข้อมูลในเหรีญเนอะ เพราะงั้นถ้าเก็บในรูปแบบ Electronic ก็ใช้ <b>Flip-Flop</b> แทน</p>
+
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/flipflop.png" width="500" />
+  <figcaption>1 bit Flip Flop ที่ไม่ใช่รองเท้า</figcaption>
+</figure>
+<h2 id="electronic-memory-types">Electronic Memory Types</h2>
+<p>แบ่งเป็น 2 ประเภท</p>
+<ul>
+<li><strong>Volatile</strong> Memory เป็น Memory แบบที่ข้อมูลหายเวลาไฟตัดซึ่งจะถูกใช้เป็น Data Memory หรือ RAM แบ่งได้อีก<ul>
+<li>DRAM</li>
+<li>SRAM</li>
+</ul>
+</li>
+<li><strong>Non-Volatile</strong> Memory อันนี้ข้อมูลไม่หายเวลาไฟตัด เอาไว้เก็บโปรแกรมหรือเป็น Program Memory ซึ่งสมุยก่อนเรารู้จักกันในชื่อ ROM (Read only memory) แบ่งได้อีก<ul>
+<li>ROM</li>
+<li>PROM</li>
+<li>EPROM</li>
+<li>EEPROM</li>
+<li>FLASH</li>
+</ul>
+</li>
+</ul>
+<h1 id="pointer">Pointer</h1>
+<h2 id="introduction">Introduction</h2>
+<p>เข้าใจง่ายๆ ในภาษา C Pointer ใช้เข้าถึง Address ของตัวแปรครับ (เข้าถึงที่ว่านี่คือทั้งรู้ Address และอ่านค่าของข้อมูลได้ด้วยนะ) </p>
+<p>และแน่นอน Array ก็เป็น Pointer</p>
+<p>ถ้าเขียนแบบนี้</p>
+<pre><code class="language-c">int data[10] = {1,2,3,4,5,6,7,8,9,10};
+int main(void){
+    printf(&quot;%d&quot;,data);
+    return 0;
+}
+</code></pre>
+<p>ถ้า <code>printf("%d",data);</code> ออกมาจะไม่ได้ค่าทั้ง Array เหมือนใน JS หรือ Python ที่เราคุ้นเคย แต่จะได้ Address ของข้อมูลตัวแรกออกมา</p>
+<h2 id="defining-pointer">Defining Pointer</h2>
+<p>นอกจาก Array เมื่อกี้แล้วยังสามารถ Define Pointer ได้แบบนี้ โดยใส่ <code>*</code> ไว้หน้าตัวชื่อแปร</p>
+<pre><code class="language-c">int *ptr; // define a pointer which points to data of type int
+</code></pre>
+<p>และแน่นอน เมื่อบอกว่า Pointer ใช้สำรับเก็บ Address ของข้อมูลก็สามารถ Assign Address ของข้อมูลนั้นได้แบบนี้
+สังเกตว่าเอา address ของตัวแปรได้จากการใส่ <code>&amp;</code> ไว้หน้าตัวแปร</p>
+<pre><code class="language-c">int datavariable=7; // define a variable called datavariable with value 7
+int *ptr; // define a pointer which points to data of type int
+ptr = &amp;datavariable;// assign the pointer to the address of datavariable
+</code></pre>
+<p>หรือจะเป็น Array แบบเมื่อกี้ (กรณีนี้ใช้ Address ของ Element Array index ที่ 0)</p>
+<pre><code class="language-c">int array[]={3,4,6,2,8,9,1,4,6}; // define an array of arbitrary values
+int *ptr // define a pointer
+ptr = &amp;array[0]; // assign pointer to the address of the first element of the array
+</code></pre>
+<h2 id="pointers-with-array-and-functions">Pointers with array and functions</h2>
+<pre><code class="language-c">/* Program Example 10.5: Pointers example for an array average function
+*/
+#include &quot;mbed.h&quot;
+Serial pc(USBTX, USBRX); // setup serial comms
+char data[]={5,7,5,8,9,1,7,8,2,5,1,4,6,2,1}; // define some input data
+char *dataptr; // define a pointer for the input data
+float average; // floating point average variable
+float CalculateAverage(char *ptr, char size); // function prototype
+int main() {
+    dataptr=&amp;data[0]; // point to address of the first array element
+    average = CalculateAverage(dataptr, sizeof(data)); // call function
+    pc.printf(&quot;\n\rdata = &quot;);
+    for (char i=0; i&lt;sizeof(data); i++) { // loop for each data value
+        pc.printf(&quot;%d &quot;,data[i]); // display all the data values
+    }
+    pc.printf(&quot;\n\raverage = %.3f&quot;,average); // display average value
+}
+// CalculateAverage function definition and code
+float CalculateAverage(char *ptr, char size) {
+    int sum=0; // variable for calculating the sum of the data
+    float mean; // variable for floating point mean value
+    for (char i=0; i&lt;size; i++) {
+        sum=sum + *(ptr+i); // add all data elements together
+    }
+    mean=(float)sum/size; // divide by size and cast to floating point
+    return mean;
+}
+</code></pre>
+<p>เอาง่ายๆไอโค้ดนี้สร้าง function <code>CalculateAverage</code> โดยรับ Address ของข้อมูลตัวแรกของ array พร้อมกับ size ของ Array ที่ต้องการคำนวน (ใช่ครับ ใส่ Array เข้าฟังชันต้องใส่ขนาดด้วย) และในตัวอย่างนี้ยังได้เห็นการเอาข้อมูลออกมาจาก Address นั้น หรือการ Dereferencing โดยการใส่ <code>*</code> ไว้หน้าตัวแปร pointer</p>
+<h1 id="files">Files</h1>
+<pre><code class="language-c">FILE *fopen(const char *filename, const char*mode); // เปิดไปล์
+int fclose(FILE *stream);   // ปิดไปล์
+int fgetc(FILE *stream);    // อ่าน Character 1 ตัวจากไฟล์
+char *fgets(char *str, int n, FILE *stream);    // อ่าน String จากไฟล์
+int fputc(int character, FILE *stream); // เขียน Character 1 ตัวลงไฟล์
+int fputs(const char *str, FILE *stream);    // เขียน String ลงไฟล์
+int fprintf(FILE *stream, const char *format,...);   // เขียน Formatted String ลงไฟล์
+int fseek(FILE *stream, long int offset, int origin);   // เลื่อนตำแหน่งที่จะอ่านไฟล์
+</code></pre>
+<h2 id="using-data-files-on-the-mbed">Using data files on the mbed</h2>
+<p>ถ้าจะใช้ File ใน MBED สามารถใช้ <code>LocalFileSystem</code> ได้ ใช้งี้</p>
+<pre><code class="language-c">LocalFileSystem local(&quot;local&quot;); //Create file system named &quot;local&quot;
+</code></pre>
+<p>ทีนี้ก็ใช้ฟังชันของไฟล์ข้างบนได้ตามปกติ </p>
+<pre><code class="language-c">FILE* pFile = fopen(&quot;/local/datafile.txt&quot;,&quot;w&quot;); // note the “w” refers to a file with write access
+</code></pre>
+<p>พอใช้เสร็จก็ปิด</p>
+<pre><code class="language-c">fclose(pFile);
+</code></pre>
+<p>ตัวอย่าง</p>
+<pre><code class="language-c">/* Program Example 10.1: read and write char data bytes
+*/
+#include &quot;mbed.h&quot;
+Serial pc(USBTX,USBRX); // setup terminal link
+LocalFileSystem local(&quot;local&quot;); // define local file system
+int write_var;
+int read_var; // create data variables
+int main ()
+{
+    FILE* File1 = fopen(&quot;/local/datafile.txt&quot;,&quot;w&quot;); // open file
+    write_var=0x23; // example data
+    fputc(write_var, File1); // put char (data value) into file
+    fclose(File1); // close file
+    FILE* File2 = fopen (&quot;/local/datafile.txt&quot;,&quot;r&quot;); // open file for reading
+    read_var = fgetc(File2); // read first data value
+    fclose(File2); // close file
+    pc.printf(&quot;input value = %i \n&quot;,read_var); // display read data value
+}
+</code></pre>
+<p>อันนี้เปิดไฟล์และก็เขียน character 1 ตัวลงไป</p>
+<pre><code class="language-c">/* Program Example 10.2: Read and write text string data
+*/
+#include &quot;mbed.h&quot;
+Serial pc(USBTX,USBRX); // setup terminal link
+LocalFileSystem local(&quot;local&quot;); // define local file system
+char write_string[64]; // character array up to 64 characters
+char read_string[64]; // create character arrays (strings)
+
+int main ()
+{
+    FILE* File1 = fopen(&quot;/local/textfile.txt&quot;,&quot;w&quot;); // open file access
+    fputs(&quot;lots and lots of words and letters&quot;, File1);// put text into file
+    fclose(File1); // close file
+    FILE* File2 = fopen (&quot;/local/textfile.txt&quot;,&quot;r&quot;); // open file for reading
+    fgets(read_string,256,File2); // read text into variable
+    fclose(File2); // close file
+    pc.printf(&quot;text data: %s \n&quot;,read_string); // display read data string
+}
+</code></pre>
+<p>อันนี้เปิดไฟล์และก็เขียน string กี่ตัวก็ไม่รู้ลงไป</p>
+<h2 id="using-external-memory-with-the-mbed">Using external memory with the mbed</h2>
+<p>MBED ต่อ Storage ภายนอกได้นะ ต่อได้ 2 แบบคือ SD Card หรือ USB Flashdrive
+ถ้าจะใช้ SD Card ต่อแบบนี้</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/sdcard.png" width="500" />
+  <figcaption>SD Card connection table</figcaption>
+</figure>
+<pre><code class="language-c">/* Program Example 10.4: writing data to an SD card */
+#include &quot;mbed.h&quot;
+#include &quot;SDFileSystem.h&quot;
+SDFileSystem sd(p5, p6, p7, p8, &quot;sd&quot;); // MOSI, MISO, SCLK, CS
+Serial pc(USBTX, USBRX);
+int main() {
+    FILE *File = fopen(&quot;/sd/sdfile.txt&quot;, &quot;w&quot;); // open file
+    if(File == NULL) { // check for file pointer
+        pc.printf(&quot;Could not open file for write\n&quot;); // error if no pointer
+    }
+    else{
+        pc.printf(&quot;SD card file successfully opened\n&quot;); // if pointer ok
+    }
+    fprintf(File, &quot;Here's some sample text on the SD card&quot;); // write data
+    fclose(File); // close file
+}
+</code></pre>
+<p>ไม่ก็ใช้ External USB Flash Drive</p>
+<p>MBED บอดนี้สามารถทำตัวเป็น USB Host ได้ (เพราะ USB Builtin ที่ขา 31,32) โดย Library <code>USBHostMSD</code></p>
+<pre><code class="language-c">
+/* Program Example 10.5: writing data to an USB flash storage device
+*/
+#include &quot;mbed.h&quot;
+#include &quot;USBHostMSD.h&quot;
+int main() {
+    USBHostMSD usb(&quot;usb&quot;); // define USBHostMSD object
+    while(!usb.connect()) { // try to connect a USB storage before continuing
+        wait(0.5);
+        printf(&quot;Connecting to USB MSD\n&quot;);
+    }
+    FILE *File = fopen(&quot;/usb/usbfile.txt&quot;, &quot;w&quot;); // open file
+    if(File == NULL) { // check for file pointer
+        intf(&quot;Could not open file for write\n&quot;); // error if no pointer
+    }
+    else{
+    p   tf(&quot;USB card file successfully opened\n&quot;); // if pointer ok
+    }
+    fprintf(File, &quot;Here's some sample text on the USB card&quot;); // write data
+    fclose(File); // close file
+}
+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
