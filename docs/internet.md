@@ -64,12 +64,20 @@ while (1) {
 ```
 <figure markdown="span" align="center">
   ![MCU Architecture](images\ethernet2mbed.png){ width="500"}
-  <figcaption>Ethernet Frame</figcaption>
+  <figcaption>Ethernet MBED</figcaption>
 </figure>
 
 อันบนโค้ดส่งข้อมูล อันล่างโค้ดรับข้อมูล ส่วนรูปแสดงการต่อสาย จบ
 
 ## LAN on MBED
+
+<figure markdown="span" align="center">
+  ![MCU Architecture](images\lanmbed.png){ width="500"}
+  <figcaption>MBED LAN Connection</figcaption>
+</figure>
+
+ขี้เกียจละบทนี้
+
 ## HTTP on MBED 
 ## WAN on MBED
 # The IOT (Internet of things)

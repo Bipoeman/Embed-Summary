@@ -8,7 +8,7 @@
 # Wireless Network
 - **Personal** Area Network (PAN) อุปกรณ์ที่อยู่ใกล้คน
 - **Local** Area Network (LAN) อุปกรณ์ที่อยู่แค่ในอาคาร
-- **Wide** Area Network (EAN) อุปกรณ์ที่อยู่ทั่วอ่ะ
+- **Wide** Area Network (WAN) อุปกรณ์ที่อยู่ทั่วอ่ะ
 # Protocols
 International Organi**z**ation for Standardi**z**ation (ISO) ได้กำหนด Protocol for Protocols ไว้เป็น **Open Systems Interconnect** หรือ OSI model
 

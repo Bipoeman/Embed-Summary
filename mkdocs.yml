@@ -10,6 +10,7 @@ nav:
   - Chapter 10 : memory.md
   - Chapter 11 : wireless.md
   - Chapter 12 : internet.md
+  - Chapter 13 : digital_audio.md
 markdown_extensions:
   - attr_list
   - md_in_html
