@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Chapter 13 - Embeded Summary</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../style.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Embeded Summary</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../midterm/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../interrupt/" class="nav-link">Chapter 9</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../memory/" class="nav-link">Chapter 10</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../wireless/" class="nav-link">Chapter 11</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../internet/" class="nav-link">Chapter 12</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Chapter 13</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../internet/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#chapter-13-working-with-digital-audio" class="nav-link">Chapter 13 Working with Digital Audio</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#midi" class="nav-link">MIDI</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#digital-audio-processing" class="nav-link">Digital Audio Processing</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#dsp-on-mbed" class="nav-link">DSP on MBED</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#signal-reconstuction" class="nav-link">Signal Reconstuction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#digital-filtering-example" class="nav-link">Digital Filtering Example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#digital-filters" class="nav-link">Digital Filters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#working-with-ave-audio-files" class="nav-link">Working with ave audio files</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#circular-buffer" class="nav-link">Circular Buffer</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#high-fidelity-audio" class="nav-link">High-fidelity Audio</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="chapter-13-working-with-digital-audio">Chapter 13 Working with Digital Audio</h1>
+<h1 id="introduction">Introduction</h1>
+<p>เสียงที่เป็นสัญญาณ Analog สามมารถเอาสัญญาณเข้าและออกจากระบบ Digital ได้ผ่าน Audio interface ที่เป็น <strong>DACs</strong> และ <strong>ADCs</strong> โดยจะถูกแปลงเป็นสัญญาณ Digital และสามารถถูกเปลี่ยนแปลงหรือปรับแต่งได้ด้วย DSP (Digital Signal Processing) และแน่นอน การลดขนาดไฟล์ก็เป็นส่วนหนึ่งของ DSP เช่นกัน เช่นการบีบอัดไฟล์เสียง</p>
+<h1 id="midi">MIDI</h1>
+<p>MIDI หรือ Musical Instrument Digital Interface คือโปรโตคอลที่เครื่องดนตรี Digital คุยกันโดยจะมีข้อมูลสำคัญคือ
+- Note On or Note Off
+- Pitch of the Note</p>
+<p>เราสามารถใช้ MBED เพื่อต่อและส่งข้อมูลด้วย Protocol MIDI ผ่าน USB ได้ด้วย Library <code>USBMIDI</code></p>
+<pre><code class="language-C">/* Program Example 13.1: MIDI messaging with variable scroll speed
+*/
+#include &quot;mbed.h&quot;
+#include &quot;USBMIDI.h&quot;
+USBMIDI midi; // initialise MIDI interface
+AnalogIn Ain(p19); // create analog input (potentiometer)
+int main() {
+    while (1) {
+        for(int i=48; i&lt;72; i++) { // step through notes
+            midi.write(MIDIMessage::NoteOn(i)); // note on
+            wait(Ain); // pause
+            midi.write(MIDIMessage::NoteOff(i)); // note off
+            wait(2*Ain); // pause
+        }
+    }
+}
+</code></pre>
+<h1 id="digital-audio-processing">Digital Audio Processing</h1>
+<ul>
+<li>DSP คือการประมวลผลสัญญาณด้วยวิธีแบบ Digital</li>
+<li>ชิพ DSP เร็วเรื่องการ shift-and-add และก็ multiply-and-add มากเพราะเป็นพื้นฐานของการประมวลสัญญาณ</li>
+<li>นอกจากนั้นยังชิพมี Instruction ที่เอาไว้สำหรับ Filter และ Frequency Analysis ได้ด้วยเพื่อให้ทำงานได้เร็วและเขียนโปรแกรมได้ง่าย</li>
+<li>จริงๆใช้ Microcontroller ก็ได้แต่จะช้ากว่าในเรื่องของเวลาการทำงาน</li>
+</ul>
+<h2 id="dsp-on-mbed">DSP on MBED</h2>
+<p>MBED สามารถทำ DSP ได้โดยรับสัญญาณเข้าผ่าน ADC ประมวลผลและส่งสัญญาณออกผ่านทาง DAC (สัญญาณเสียงอ่ะนะ) เรื่องก็คือสญญาณเสียงเป็นสัญญาณ AC ที่มีทั้งบวกและลบแต่ MBED อ่านสัญญาณได้แค่ฝั่งบวกเท่านั้น ก็เลยต้องใส่ Offset ของสัญญาณให้มันนิดนึง</p>
+<p>โดยจะใส่วงจรนี้เพื่อเพิ่ม Offset ให้กับสัญญาณด้วยวงจรนี้</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/offset-signal-circuit.png" width="500" />
+  <figcaption>วงจรใส่ Offset ให้กับสัญญาณ</figcaption>
+</figure>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/ac-signal.svg" width="500" />
+  <figcaption>สัญญาณเสียงปกติ</figcaption>
+</figure>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/offset-signal.svg" width="500" />
+  <figcaption>สัญญาณเสียงที่ใส่ Offset แล้ว</figcaption>
+</figure>
+<pre><code class="language-c">/* Program Example 13.5 DSP input and output using a 20 kHz ticker object
+*/
+#include &quot;mbed.h&quot;
+//mbed objects
+AnalogIn Ain(p15);
+AnalogOut Aout(p18);
+Ticker s20khz_tick;
+//function prototypes
+void s20khz_task(void);
+//variables and data
+float data_in, data_out;
+//main program start here
+int main() {
+    s20khz_tick.attach_us(&amp;s20khz_task,50); // attach task to 50us tick
+}
+// function 20khz_task
+void s20khz_task(void){
+    data_in=Ain;
+    data_out=data_in;
+    Aout=data_out;
+}
+</code></pre>
+<h2 id="signal-reconstuction">Signal Reconstuction</h2>
+<p>DAC ไม่สามารถ Output ให้หน้าตาเหมือนกับ Input ได้เนื่องจากมีความละเอียดที่จำกัด</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/reconstruction.png" width="500" />
+  <figcaption>สัญญาณที่ออกจาก DAC</figcaption>
+</figure>
+<p>เส้นบนสุดคือสัญญาณ Input, เส้นกลางคือ Output จาก DAC</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/reconstruction-filter.png" width="500" />
+  <figcaption>Reconstruction Filter</figcaption>
+</figure>
+<p>สังเกตว่าเส้นล่างคือสัญญาณที่ออกจาก DAC มันเป็นขั้นบันได้ เพราะงั้นต้องเอาไปใส่ Reconstruction Filter เพื่อให้หน้าตาสัญญาณเหมือน input มากขึ้น</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/mbed-dsp.png" width="800" />
+  <figcaption>Circuit of DSP with MBED</figcaption>
+</figure>
+<h2 id="digital-filtering-example">Digital Filtering Example</h2>
+<p>เอาง่ายๆ หลักๆถ้ามีสัญญาณที่ผสมกันหลายๆความถี่ ถ้าอยากได้สัญญาณความถี่สูงก็ใช้ High Pass แต่ถ้าอยากได้สัญญาณเฉพาะความถี่ต่ำก็ใช้ Low Pass Filter</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/low-high-pass.png" width="800" />
+  <figcaption>Low pass and High Pass filter</figcaption>
+</figure>
+<h2 id="digital-filters">Digital Filters</h2>
+<p>ไม่สนเรื่องสูดรละกัน แต่จะพูดถึง IIR และ FIR Filter
+- FIR (Finite Impulse Response) ไม่มี Feedback แต่มีข้อดีเรื่อง Phase Shift
+- IIR (Infinite Impulse Response) ใช้ Feedback จาก Output กลับมาคำนวนใหม่</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/fir-irr.png" width="800" />
+  <figcaption>FIR IIR Filter</figcaption>
+</figure>
+<h1 id="working-with-ave-audio-files">Working with ave audio files</h1>
+<p>นามสกุลไฟล์เสียงยอดนิยมคือ <code>.wav</code> โดยจะมี Header เพื่อบอกข้อมูลของไฟล์เช่น Bit rate, Sample Frequency ที่ต้องมี Header เพื่อเครื่องอ่านจะได้เล่นถูก
+หน้าตามันก็จะประมาณนี้</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/wav-header.png" width="800" />
+  <figcaption>Wav File Header Content</figcaption>
+</figure>
+<p>ข้อมูลเป็น <strong>Last Significant Byte First</strong> เช่น Sample Rate ที่มีค่า Hex เป็น <code>80 3E 00 00</code> ให้อ่านจากขวาไปซ้าย ก็จะกลายเป็น <code>00 00 3E 80</code> ซึ่งแปลงเป็นเลขฐาน 10 ก็จะได้ 16000 นั่นเอง</p>
+<pre><code class="language-c">/* Program Example 13.8 Wave file header reader (wav data stored on SD card)
+*/
+#include &quot;mbed.h&quot;
+#include &quot;SDFileSystem.h&quot;
+SDFileSystem sd(p5, p6, p7, p8, &quot;sd&quot;);
+Serial pc(USBTX,USBRX); // set up terminal link
+char c1, c2, c3, c4; // chars for reading data in
+int AudioFormat, NumChannels, SampleRate, BitsPerSample ;
+int main() {
+    pc.printf(&quot;\n\rWave file header reader\n\r&quot;); // binary file in read mode
+    FILE *fp = fopen(&quot;/sd/sinewave.wav&quot;, &quot;rb&quot;); // open SD card wav file
+    fseek(fp, 20, SEEK_SET); // set pointer to byte 20
+    fread(&amp;AudioFormat, 2, 1, fp); // check file is PCM
+    if (AudioFormat==0x01) {
+        pc.printf(&quot;Wav file is PCM data\n\r&quot;);
+    }
+    else {
+        pc.printf(&quot;Wav file is not PCM data\n\r&quot;);
+    }
+    fread(&amp;NumChannels, 2, 1, fp); // find number of channels
+    pc.printf(&quot;Number of channels: %d\n\r&quot;,NumChannels);
+    fread(&amp;SampleRate, 4, 1, fp); // find sample rate
+    pc.printf(&quot;Sample rate: %d\n\r&quot;,SampleRate);
+    fread(&amp;BitsPerSample, 2, 1, fp); // find resolution
+    pc.printf(&quot;Bits per sample: %d\n\r&quot;,BitsPerSample);
+    fclose(fp);
+}
+</code></pre>
+<p>ในต้วอย่างนี้จะเช็คไฟล์ใน SD Card ว่าเป็น File PCB มั้ย ถ้าเป็นก็บอก ไม่เป็นก็บอก ทีนี้ก็อ่านและก็เล่นออกมาผ่าน DAC</p>
+<h2 id="circular-buffer">Circular Buffer</h2>
+<p>ก็เขียนข้อมูลใส่ Buffer ไปเรื่อยๆจนจบ Array แล้วกลับมาเริ่มต้นใหม่ เอาไว้ควบคุม Timing ระหว่างการอ่านและส่งข้อมูลของข้อมูลแต่ละ Byte</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/circular_buffer.png" width="800" />
+  <figcaption>Circular Buffer</figcaption>
+</figure>
+<pre><code class="language-c">/* Program Example 13.9: 16-bit mono wave player
+*/
+#include &quot;mbed.h&quot;
+#include &quot;SDFileSystem.h&quot;
+#define BUFFERSIZE 4096 // number of data in circular buffer
+SDFileSystem sd(p5, p6, p7, p8, &quot;sd&quot;);
+AnalogOut DACout(p18);
+Ticker SampleTicker;
+int SampleRate;
+float SamplePeriod; // sample period in microseconds
+int CircularBuffer[BUFFERSIZE]; // circular buffer array
+int ReadPointer=0;
+int WritePointer=0;
+bool EndOfFileFlag=0;
+void DACFunction(void); // function prototype
+int main() {
+    FILE *fp = fopen(&quot;/sd/testa.wav&quot;, &quot;rb&quot;); // open wave file
+    fseek(fp, 24, SEEK_SET); // move to byte 24
+    fread(&amp;SampleRate, 4, 1, fp); // get sample frequency
+    SamplePeriod=(float)1/SampleRate; // calculate sample period as float
+    SampleTicker.attach(&amp;DACFunction,SamplePeriod); // start output tick
+    while (!feof(fp)) { // loop until end of file is encountered
+        fread(&amp;CircularBuffer[WritePointer], 2, 1, fp);
+        WritePointer=WritePointer+1; // increment Write Pointer
+        if (WritePointer&gt;=BUFFERSIZE) { // if end of circular buffer
+            WritePointer=0; // go back to start of buffer
+        }
+    }
+    EndOfFileFlag=1;
+    fclose(fp);
+}
+
+// Program Example 13.9 Continued
+// DAC function called at rate SamplePeriod
+void DACFunction(void) {
+    if ((EndOfFileFlag==0)|(ReadPointer&gt;0)) { // output while data available
+        DACout.write_u16(CircularBuffer[ReadPointer]); // output to DAC
+        ReadPointer=ReadPointer+1; // increment pointer
+        if (ReadPointer&gt;=BUFFERSIZE) {
+          ReadPointer=0; // reset pointer if necessary
+        }
+    }
+}
+</code></pre>
+<p>อันนี้คือตัวอย่างของ Circular Buffer ที่อ่านจาก SD Card มาใส่ ตัวแปรเป็นแบบ Circular แล้วส่งออกทาง DAC</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/2complimentdac.png" width="800" />
+  <figcaption>2's Compliment DAC Data</figcaption>
+</figure>
+<h2 id="high-fidelity-audio">High-fidelity Audio</h2>
+<p>เอาง่ายๆ ADC กับ DAC ของบอดมันกากครับ เพราะงั้นเลยต้องหาตัวช่วยถ้าอยากให้ Sample เสียงคุณภาพดีขึ้นเช่นตัวนี้ TLV320AIC23B เป็นทั้ง ADC และ DAC (ก็คือ CODEC อ่ะแหละ) ความละเอียดสูงสุด 16, 20, 24 หรือ 32 bit และก็ Sample Rate สูงสุด 96kHz</p>
+<figure align="center">
+  <img alt="MCU Architecture" src="../images/TLV320AIC23B.png" width="800" />
+  <figcaption>TLV320AIC23B ADC DAC</figcaption>
+</figure>
+<p>และแน่นอน จะส่งสัญญาณเสียงไปให้มันต้องผ่านโปรโตรคอล I2S (I Square S) มันจะมีสายหลักๆอยู่  3 เส้นก็คือ</p>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WS</td>
+<td>Word Select</td>
+<td>เอาไว้เลือกซ้ายขวา 0 = Left</td>
+</tr>
+<tr>
+<td>SCK</td>
+<td>Data Clock</td>
+<td>เอาไว้ Sync สัญญาณ</td>
+</tr>
+<tr>
+<td>SD</td>
+<td>Serial Data</td>
+<td>สัญญาณ</td>
+</tr>
+</tbody>
+</table>
+<p>ที่เหลือต่อใน Slide</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
